@@ -20,6 +20,7 @@ class ProjectTest extends TestCase
         ];
 
         $this->post('/projects', $attributes)->assertRedirect('/projects');
+
         //$this->assertDatabaseHas('projects', $attributes);
         //$this->get('/projects')->assertSee($attributes['title']);
     }
@@ -27,6 +28,7 @@ class ProjectTest extends TestCase
     /** @test */
     public function a_project_requires_a_title()
     {
+        $attributes = factory('App\Project')->make()
         $this->post('/projects', $attributes)->assertSessionHasErrors('title');
     }
 
