@@ -28,7 +28,7 @@ class ProjectTest extends TestCase
     /** @test */
     public function a_project_requires_a_title()
     {
-        $attributes = factory('App\Project')->make()
+        $attributes = factory('App\Project')->raw(['title'=>'']);
         $this->post('/projects', $attributes)->assertSessionHasErrors('title');
     }
 
