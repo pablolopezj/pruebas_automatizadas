@@ -28,7 +28,7 @@ class ProjectTest extends TestCase
     /** @test */
     public function a_project_requires_a_title()
     {
-        $this->post('/projects', $attributes)->assertSessionHasErrors('title');
+        $this->post('/projects', [])->assertSessionHasErrors('title');
     }
 
     /** @test */
