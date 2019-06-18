@@ -20,8 +20,9 @@ class ProjectTest extends TestCase
         ];
 
         $this->post('/projects', $attributes)->assertRedirect('/projects');
-        //$this->assertDatabaseHas('projects', $attributes);
-        //$this->get('/projects')->assertSee($attributes['title']);
+
+        $this->assertDatabaseHas('projects', $attributes);
+        $this->get('/projects')->assertSee($attributes['title']);
     }
 
     /** @test */
